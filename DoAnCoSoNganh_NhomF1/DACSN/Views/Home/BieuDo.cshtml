@@ -1,0 +1,71 @@
+﻿<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+     
+    </p>
+</figure>
+<script>
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Tình hình dịch Covid trong 1 Tuần'
+        },
+        subtitle: {
+            text: 'Source: https://covid19.gov.vn/'
+        },
+        xAxis: {
+            categories: [
+                '13-11',
+                '14-11',
+                '15-11',
+                '16-11',
+                '17-11',
+                '18-11',
+                '19-11',
+               
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Số lượng người'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} người</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Số ca nhiễm',
+            data: [8457, 8176, 8616, 10259, 29697, 0, 9625]
+
+        }, {
+            name: 'Số ca khỏi',
+            data: [1843, 5257, 1025, 6481, 12567, 0, 1971]
+
+        }, {
+            name: 'Số ca tử vong',
+            data: [88, 64, 101, 87, 308, 0,102]
+
+        }]
+    });
+</script>
